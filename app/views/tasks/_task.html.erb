@@ -1,35 +1,10 @@
-<!-- <tr
-<div class="row">
-<div class="col-md-4">
-<h1 class="text-center">To Do</h1>
-<div class="panel panel-info">
-<div class="panel-heading">Heading</div>
-<div class="panel-body">Content</div>
-<div class="panel-footer text-center">Footer</div>
-</div>
-</div>
-<div class="col-md-4">
-<h1 class="text-center">Doing</h1>
-</div>
-<div class="col-md-4">
-<h1 class="text-center">Done</h1>
-</div>
-</div>
-
-<br>
-
-
-<%= link_to 'New Task', new_task_path %>
-
--->
-
 <div class="panel panel-info">
   <div class="panel-heading">
     <%= link_to edit_task_path(task) do %>
-
     created <%= time_ago_in_words(task.created_at) %> ago
-    
     <% end %>
+    <%= link_to "x", task_path(task), method: :delete, data:{confirm: "Are you sure?"}, class: "pull-right" %>
+
   </div>
   <div class="panel-body"><%= task.context%></div>
   <div class="panel-footer text-center">
